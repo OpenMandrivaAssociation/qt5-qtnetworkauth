@@ -17,6 +17,7 @@ License: LGPL-2.1-with-Qt-Company-Qt-exception-1.1 or LGPL-3.0-with-Qt-Company-Q
 Group: System/Libraries
 BuildRequires: qmake5
 BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5Network)
 
 %description
 Qt library for network authentication
