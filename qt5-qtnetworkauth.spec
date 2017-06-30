@@ -4,7 +4,7 @@
 %define beta %{nil}
 
 Name:	qt5-qtnetworkauth
-Version: 5.9.0
+Version: 5.9.1
 %if "%{beta}" != "%{nil}"
 Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/qtnetworkauth-opensource-src-%{version}-%{beta}.tar.xz
 Release: 0.%{beta}.1
