@@ -1,12 +1,12 @@
 %define major 5
 %define libname %mklibname qt5networkauth %{major}
 %define devname %mklibname qt5networkauth -d
-%define beta %{nil}
+%define beta beta
 
 Name:	qt5-qtnetworkauth
-Version: 5.9.2
+Version: 5.10.0
 %if "%{beta}" != "%{nil}"
-Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/qtnetworkauth-opensource-src-%{version}-%{beta}.tar.xz
+Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/qtnetworkauth-everywhere-src-%{version}-%{beta}.tar.xz
 Release: 0.%{beta}.1
 %else
 Source0: http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/qtnetworkauth-opensource-src-%{version}.tar.xz
@@ -49,7 +49,7 @@ Example code for the %{name} library
 
 %prep
 %if "%{beta}" != "%{nil}"
-%setup -qn qtnetworkauth-opensource-src-%{version}-%{beta}
+%setup -qn qtnetworkauth-everywhere-src-%{version}-%{beta}
 %else
 %setup -qn qtnetworkauth-opensource-src-%{version}
 %endif
