@@ -1,10 +1,10 @@
 %define major 5
 %define libname %mklibname qt5networkauth %{major}
 %define devname %mklibname qt5networkauth -d
-%define beta %{nil}
+%define beta beta3
 
 Name:	qt5-qtnetworkauth
-Version: 5.10.1
+Version: 5.11.0
 %if "%{beta}" != "%{nil}"
 %define qttarballdir qtnetworkauth-everywhere-src-%{version}-%{beta}
 Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%(echo %{beta} |sed -e "s,1$,,")/submodules/%{qttarballdir}.tar.xz
