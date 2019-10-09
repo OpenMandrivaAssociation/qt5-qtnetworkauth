@@ -1,13 +1,13 @@
 %define major 5
 %define libname %mklibname qt5networkauth %{major}
 %define devname %mklibname qt5networkauth -d
-%define beta %{nil}
+%define beta beta1
 
 Name: qt5-qtnetworkauth
-Version:	5.13.1
+Version:	5.14.0
 %if "%{beta}" != "%{nil}"
 %define qttarballdir qtnetworkauth-everywhere-src-%{version}-%{beta}
-Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%(echo %{beta} |sed -e "s,1$,,")/submodules/%{qttarballdir}.tar.xz
+Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 Release:	1
 %else
 %define qttarballdir qtnetworkauth-everywhere-src-%{version}
@@ -21,6 +21,8 @@ Group: System/Libraries
 BuildRequires: qmake5
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Network)
+BuildRequires: qt5-qtdoc
+BuildRequires: qt5-qttools
 # For the Provides: generator
 BuildRequires: cmake >= 3.11.0-1
 
@@ -57,6 +59,7 @@ Example code for the %{name} library.
 
 %build
 %make_build
+%make_build docs
 
 %install
 %make_install install_docs INSTALL_ROOT="%{buildroot}"
@@ -72,6 +75,8 @@ find "%{buildroot}" -type f -name '*.prl' -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR
 %{_libdir}/cmake/Qt5NetworkAuth
 %{_libdir}/qt5/mkspecs/modules/*.pri
 %{_libdir}/*.prl
+%doc %{_docdir}/qt5/qtnetworkauth.qch
+%doc %{_docdir}/qt5/qtnetworkauth
 
 %files examples
 %{_libdir}/qt5/examples/oauth
