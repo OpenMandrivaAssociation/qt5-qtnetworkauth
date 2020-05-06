@@ -1,7 +1,7 @@
 %define major 5
 %define libname %mklibname qt5networkauth %{major}
 %define devname %mklibname qt5networkauth -d
-%define beta beta4
+%define beta rc
 
 Name: qt5-qtnetworkauth
 Version:	5.15.0
