@@ -4,16 +4,17 @@
 %define beta %{nil}
 
 Name: qt5-qtnetworkauth
-Version:	5.15.2
+Version:	5.15.3
 %if "%{beta}" != "%{nil}"
 %define qttarballdir qtnetworkauth-everywhere-src-%{version}-%{beta}
 Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 Release:	0.%{beta}.1
 %else
-%define qttarballdir qtnetworkauth-everywhere-src-%{version}
-Source0: http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
+%define qttarballdir qtnetworkauth-everywhere-src-5.15.2
+Source0: http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/5.15.2/submodules/%{qttarballdir}.tar.xz
 Release:	1
 %endif
+Patch1000:	0001-Bump-version.patch
 Summary: Qt library for network authentication
 URL: https://github.com/qtproject/qtnetworkauth
 License: LGPL-2.1-with-Qt-Company-Qt-exception-1.1 or LGPL-3.0-with-Qt-Company-Qt-exception-1.1
@@ -56,6 +57,7 @@ Example code for the %{name} library.
 
 %prep
 %autosetup -n %{qttarballdir} -p1
+%{_libdir}/qt5/bin/syncqt.pl -version %{version}
 %qmake_qt5 *.pro
 
 %build
