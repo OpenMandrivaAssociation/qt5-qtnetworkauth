@@ -4,7 +4,7 @@
 %define beta %{nil}
 
 Name: qt5-qtnetworkauth
-Version:	5.15.3
+Version:	5.15.4
 %if "%{beta}" != "%{nil}"
 %define qttarballdir qtnetworkauth-everywhere-src-%{version}-%{beta}
 Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
