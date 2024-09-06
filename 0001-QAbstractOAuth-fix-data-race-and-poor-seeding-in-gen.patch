@@ -1,4 +1,4 @@
-From 28180f28c98e329676463e24cef0097cba45bc00 Mon Sep 17 00:00:00 2001
+From 17d6ed940cea4ead62f4055184d4fc69bf06b789 Mon Sep 17 00:00:00 2001
 From: Marc Mutz <marc.mutz@qt.io>
 Date: Wed, 8 May 2024 16:11:36 +0200
 Subject: [PATCH] QAbstractOAuth: fix data race and poor seeding in
@@ -101,5 +101,5 @@ index 46985d6..09939ea 100644
      The parameter \a length determines the size of the generated
      string.
 -- 
-2.45.1
+2.46.0
 
