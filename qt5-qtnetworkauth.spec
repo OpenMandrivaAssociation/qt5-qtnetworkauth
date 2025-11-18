@@ -4,7 +4,7 @@
 %define beta %{nil}
 
 Name: qt5-qtnetworkauth
-Version:	5.15.15
+Version:	5.15.18
 %if "%{beta}" != "%{nil}"
 %define qttarballdir qtnetworkauth-everywhere-src-%{version}-%{beta}
 Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
@@ -15,7 +15,8 @@ Source0: http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f
 Release:	1
 %endif
 # from KDE https://invent.kde.org/qt/qt/qtnetworkauth -b kde/5.15
-%(P=1001; cd %{_sourcedir}; for i in [0-9][0-9][0-9][0-9]-*.patch; do echo -e "Patch$P:\t$i"; P=$((P+1)); done)
+# (currently nothing)
+#(P=1001; cd %{_sourcedir}; for i in [0-9][0-9][0-9][0-9]-*.patch; do echo -e "Patch$P:\t$i"; P=$((P+1)); done)
 Summary: Qt library for network authentication
 URL: https://github.com/qtproject/qtnetworkauth
 License: LGPL-2.1-with-Qt-Company-Qt-exception-1.1 or LGPL-3.0-with-Qt-Company-Qt-exception-1.1
